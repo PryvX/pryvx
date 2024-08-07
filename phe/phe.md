@@ -16,8 +16,8 @@ Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorp
 2. Compute ciphertext $$\( c = g^m \cdot r^n \mod n^2 \)$$, where \( m \) is the plaintext.
 
 ### Decryption
-1. Compute \( u = c^{\lambda(n)} \mod n^2 \).
-2. Compute \( m = L(u) \cdot \mu \mod n \).
+1. Compute $$\( u = c^{\lambda(n)} \mod n^2 \)$$.
+2. Compute $$\( m = L(u) \cdot \mu \mod n \)$$.
 
 ## Installation
 
