@@ -25,6 +25,7 @@ You can install the `pryvx` package via pip:
 
 ```sh
 pip install pryvx
+```
 
 ## Example Usage
 
