@@ -5,9 +5,9 @@ Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorp
 ## Mathematical Definition
 
 ### Key Generation
-1. Choose two large prime numbers \( p \) and \( q \).
+1. Choose two large prime numbers p and q.
 2. Compute $$\( n = p \times q \)$$.
-3. Compute \( \lambda(n) = \text{lcm}(p-1, q-1) \).
+3. Compute $$\( \lambda(n) = \text{lcm}(p-1, q-1) \)$$.
 4. Choose \( g = n + 1 \).
 5. Compute 
 
