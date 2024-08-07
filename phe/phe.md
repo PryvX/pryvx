@@ -11,15 +11,11 @@ Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorp
 4. Choose $$\( g = n + 1 \)$$.
 5. Compute 
 
-   $$ 
-   \mu = \left( \frac{L(g^{\lambda(n)} \mod n^2)}{n} \right)^{-1} \mod n 
-   $$
+   $$ (\mu = \left( \frac{L(g^{\lambda(n)} \mod n^2)}{n} \right)^{-1} \mod n )$$
 
    where 
 
-   $$
-   L(u) = \frac{u - 1}{n} 
-   $$
+   $$ ( L(u) = \frac{u - 1}{n} )$$
 
 ### Encryption
 1. Choose a random \( r \in \mathbb{Z}_n^* \).
