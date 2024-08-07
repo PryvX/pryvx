@@ -9,15 +9,40 @@ Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorp
 2. Compute \( n = p \times q \).
 3. Compute \( \lambda(n) = \text{lcm}(p-1, q-1) \).
 4. Choose \( g = n + 1 \).
-5. Compute \( \mu = \left( \frac{L(g^{\lambda(n)} \mod n^2)}{n} \right)^{-1} \mod n \), where \( L(u) = \frac{u - 1}{n} \).
+5. Compute 
+
+   $$ 
+   \mu = \left( \frac{L(g^{\lambda(n)} \mod n^2)}{n} \right)^{-1} \mod n 
+   $$
+
+   where 
+
+   $$
+   L(u) = \frac{u - 1}{n} 
+   $$
 
 ### Encryption
 1. Choose a random \( r \in \mathbb{Z}_n^* \).
-2. Compute ciphertext \( c = g^m \cdot r^n \mod n^2 \), where \( m \) is the plaintext.
+2. Compute ciphertext 
+
+   $$ 
+   c = g^m \cdot r^n \mod n^2 
+   $$
+
+   where \( m \) is the plaintext.
 
 ### Decryption
-1. Compute \( u = c^{\lambda(n)} \mod n^2 \).
-2. Compute \( m = L(u) \cdot \mu \mod n \).
+1. Compute 
+
+   $$ 
+   u = c^{\lambda(n)} \mod n^2 
+   $$
+
+2. Compute 
+
+   $$ 
+   m = L(u) \cdot \mu \mod n 
+   $$
 
 ## Installation
 
