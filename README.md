@@ -4,15 +4,15 @@ PryvX is a collection of privacy-enhancing technologies, starting with Private S
 
 ## Modules
 
-### [Private Set Intersection (PSI)](psi/README.md)
+### [Private Set Intersection (PSI)](psi/psi.md)
 Private Set Intersection (PSI) allows two parties to compute the intersection of their private sets without revealing any additional information.
 
-For detailed information, see the [PSI README](psi/README.md).
+For detailed information, see the [PSI README](psi/psi.md).
 
-### [Paillier Homomorphic Encryption (PHE)](phe/README.md)
+### [Paillier Homomorphic Encryption (PHE)](phe/phe.md)
 Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorphic properties, enabling operations on encrypted data without decryption.
 
-For detailed information, see the [PHE README](phe/README.md).
+For detailed information, see the [PHE README](phe/phe.md).
 
 ## Installation
 
