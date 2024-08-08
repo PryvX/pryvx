@@ -14,7 +14,7 @@ Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorp
 
 For detailed information, see the [PHE README](phe/phe.md).
 
-### [Global Differential Privacy (GDP)](dp/dp.md)
+### [Global Differential Privacy (GDP)](dp/gdp.md)
 Global Differential Privacy (GDP) ensures that individual data entries remain private when performing queries on a database. The GDP module implements the Laplace mechanism to add noise to query results.
 
 For detailed information, see the [GDP README](dp/gdp.md).
@@ -25,7 +25,7 @@ Secure Multi-Party Computation (SMPC) allows multiple parties to jointly compute
 For detailed information, see the [SMPC README](smpc/smpc.md).
 
 ### [Federated Learning (FL)](federated_learning/fl.md)
-Federated Learning (FL) enables decentralized model training across multiple clients without sharing their raw data. The FL module includes functionality for training models locally and securely sending model parameters to a central server using REST APIs.
+Federated Learning (FL) enables decentralized model training across multiple clients without sharing their raw data. The FL module includes functionality for training models locally and securely sending model parameters to a central server.
 
 For detailed information, see the [FL README](federated_learning/fl.md).
 
