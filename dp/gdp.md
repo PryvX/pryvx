@@ -34,7 +34,7 @@ Below is an example of how to use the GDP module to add noise to a query result 
 
 ```python
 import numpy as np
-from pryvx.gdp import GDP
+from pryvx import GDP
 
 # Example database
 database = np.random.randint(0, 100, size=1000)
