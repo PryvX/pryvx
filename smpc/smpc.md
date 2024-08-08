@@ -27,7 +27,7 @@ pip install pryvx
 Below is an example of how to use the SMPC module with Additive Secret Sharing:
 
 ```python
-from pryvx.smpc import SMPC
+from pryvx import SMPC
 
 # Example values
 a = 35
