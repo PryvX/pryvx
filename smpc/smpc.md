@@ -61,4 +61,3 @@ print("Secure Comparison:", smpc1.compare(shares_a, shares_b))
 
 - **Encoding and Decoding:** The module supports encoding rational numbers into a finite field and decoding them back into rational numbers. This is crucial for operations where fractional values are involved.
 - **Comparison Operation:** The module can securely compare two secrets based on their shares.
-- 
