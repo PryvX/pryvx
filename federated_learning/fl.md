@@ -50,3 +50,31 @@ Federated Learning is a decentralized approach to machine learning where multipl
 - **Communication Costs**: Frequent model updates can lead to significant communication overhead.
 - **Model Security**: Protecting the model updates from tampering or inference attacks is crucial.
 - **Data Heterogeneity**: Different participants may have varying data distributions, leading to challenges in model convergence and performance.
+
+## Installation
+
+To install the `pryvx` package, which includes the SMPC module:
+
+```sh
+pip install pryvx
+```
+
+## Usage
+
+### Example FL Server Code
+```sh
+from pryvx_fl.fl_server import start_server
+
+start_server()
+```
+
+### Example FL Client Code
+```sh
+from pryvx_fl.fl_client import train, send_params
+
+features = [[0, 0], [1, 1]]
+labels = [0, 1]
+
+model = train(features, labels)
+send_params(model, 'localhost:50051')
+```
