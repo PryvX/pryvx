@@ -57,21 +57,26 @@ pip install pryvx
 Here is a basic example of how to use the PSI package:
 
 ```python
-from pryvx import PSI
+from pryvx.psi import OPRF
 
 # Generate a key for the server
-server_key = PSI.get_key()
+server_key = OPRF.get_key()
 
 # Define the datasets from Party A and Party B
-set_a = ["Alice", "Bob", "Charlie"]
-set_b = ["Bob", "David", "Charlie"]
+set_a = ["Alice", "Bob", "Charlie", "Rocky", "Jane"]
+set_b = ["Bob", "David", "Charlie", "Vicky", "Rocky"]
+
+# Compute the hashed sets
+batch_size = 2
+hashed_set_a = OPRF.get_hash(set_a, batch_size, server_key)
+hashed_set_b = OPRF.get_hash(set_b, batch_size, server_key)
 
 # Compute the intersection
-batch_size = 2
-intersection = PSI.oprf(set_a, set_b, batch_size, server_key)
+intersection_hashes = OPRF.get_intersect(hashed_set_a, hashed_set_b)
 
 # Print the intersection
-print(intersection)  # Output: {'Bob', 'Charlie'}
+overlap_values = {hashed_set_a[h] for h in intersection_hashes}
+print(overlap_values)  # Output: {'Charlie', 'Bob', 'Rocky'}
 ```
 
 ### Detailed Explanation
