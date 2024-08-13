@@ -48,3 +48,48 @@ c_sum = phe1.homomorphic_add(c1, c2, public_key)
 decrypted_sum = phe1.decrypt(public_key, private_key, c_sum)
 
 print("Decrypted Sum:", decrypted_sum)  # Should print 15
+```
+
+### Example Usage with Pyspark support for distributed processing
+
+```sh
+pip install pryvx pyspark py4j
+```
+
+Here is a basic example of how to apply Homomorphic encryption module using pyspark:
+
+```python
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import udf
+from pyspark.sql.types import StringType
+from pryvx import PHE
+
+# Initialize Spark session
+spark = SparkSession.builder.appName("PaillierHomomorphicEncryption").getOrCreate()
+
+# Initialise PHE
+phe1 = PHE()
+public_key, private_key = phe1.keygen()
+
+# Create a list of values
+data = [(1,), (2,), (3,), (4,)]  # List of tuples
+
+# Create a DataFrame from the list
+df = spark.createDataFrame(data, ["value"])  # Column name is 'value'
+
+def encrypt_value(value):
+    return phe1.encrypt(public_key, value)
+
+# Register the encryption function as a UDF (User Defined Function)
+encrypt_udf = udf(lambda x: encrypt_value(x), StringType())
+
+# Apply the encryption function to the 'value' column
+df_encrypted = df.withColumn("encrypted_value", encrypt_udf(df["value"]))
+
+# Show the encrypted values
+df_encrypted.show(truncate=False)
+
+# Stop the Spark session
+spark.stop()
+```
+
