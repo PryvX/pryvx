@@ -68,8 +68,8 @@ set_b = ["Bob", "David", "Charlie", "Vicky", "Rocky"]
 
 # Compute the hashed sets
 batch_size = 2
-hashed_set_a = OPRF.get_hash(set_a, batch_size, server_key)
-hashed_set_b = OPRF.get_hash(set_b, batch_size, server_key)
+hashed_set_a = OPRF.get_batch_hash(set_a, batch_size, server_key)
+hashed_set_b = OPRF.get_batch_hash(set_b, batch_size, server_key)
 
 # Compute the intersection
 intersection_hashes = OPRF.get_intersect(hashed_set_a.keys(), hashed_set_b.keys())
@@ -97,8 +97,8 @@ print(overlap_values)  # Output: {'Charlie', 'Bob', 'Rocky'}
 3. **Compute Intersection**:
    ```python
    batch_size = 2
-   hashed_set_a = OPRF.get_hash(set_a, batch_size, server_key)
-   hashed_set_b = OPRF.get_hash(set_b, batch_size, server_key)
+   hashed_set_a = OPRF.get_batch_hash(set_a, batch_size, server_key)
+   hashed_set_b = OPRF.get_batch_hash(set_b, batch_size, server_key)
    intersection_hashes = OPRF.get_intersect(hashed_set_a.keys(), hashed_set_b.keys())
    ```
    The `oprf` function takes the datasets, a batch size, and the server key to compute the intersection of the datasets using OPRF. The batch size determines the number of elements processed in parallel.
