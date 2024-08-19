@@ -72,7 +72,7 @@ hashed_set_a = OPRF.get_hash(set_a, batch_size, server_key)
 hashed_set_b = OPRF.get_hash(set_b, batch_size, server_key)
 
 # Compute the intersection
-intersection_hashes = OPRF.get_intersect(hashed_set_a, hashed_set_b)
+intersection_hashes = OPRF.get_intersect(hashed_set_a.keys(), hashed_set_b.keys())
 
 # Print the intersection
 overlap_values = {hashed_set_a[h] for h in intersection_hashes}
@@ -83,27 +83,30 @@ print(overlap_values)  # Output: {'Charlie', 'Bob', 'Rocky'}
 
 1. **Generate Server Key**:
    ```python
-   server_key = PSI.get_key()
+   server_key = OPRF.get_key()
    ```
    This generates a random 256-bit key that will be used by the server to perform the OPRF.
 
 2. **Define Datasets**:
    ```python
-   set_a = ["Alice", "Bob", "Charlie"]
-   set_b = ["Bob", "David", "Charlie"]
+   set_a = ["Alice", "Bob", "Charlie", "Rocky", "Jane"]
+   set_b = ["Bob", "David", "Charlie", "Vicky", "Rocky"]
    ```
    These are the datasets from Party A and Party B. In a real-world scenario, these could be lists of sensitive data that the parties do not want to share in plaintext.
 
 3. **Compute Intersection**:
    ```python
    batch_size = 2
-   intersection = PSI.oprf(set_a, set_b, batch_size, server_key)
+   hashed_set_a = OPRF.get_hash(set_a, batch_size, server_key)
+   hashed_set_b = OPRF.get_hash(set_b, batch_size, server_key)
+   intersection_hashes = OPRF.get_intersect(hashed_set_a.keys(), hashed_set_b.keys())
    ```
    The `oprf` function takes the datasets, a batch size, and the server key to compute the intersection of the datasets using OPRF. The batch size determines the number of elements processed in parallel.
 
 4. **Print Intersection**:
    ```python
-   print(intersection)  # Output: {'Bob', 'Charlie'}
+   overlap_values = {hashed_set_a[h] for h in intersection_hashes}
+   print(overlap_values)  # Output: {'Charlie', 'Bob', 'Rocky'}
    ```
    The result is the intersection of the datasets, indicating the common elements.
 
