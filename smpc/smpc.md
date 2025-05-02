@@ -32,7 +32,7 @@ from pryvx import SMPC
 # Example values
 a = 35
 b = 50
-total_parties = 2
+total_parties = 3
 
 smpc1 = SMPC()
 
@@ -40,14 +40,17 @@ smpc1 = SMPC()
 shares_a = smpc1.get_secret_shares(a, total_parties)
 shares_b = smpc1.get_secret_shares(b, total_parties)
 
-# Perform secure addition on the shares
-print("Secure Addition:", smpc1.addition([shares_a, shares_b]))
+# Send one share each of A & B to Party 1 and perform secure addition.
+p1 = smpc1.reconstruct(shares_a[0] + shares_b[0])
 
-# Perform secure difference on the shares
-print("Secure Difference:", smpc1.difference(shares_a, shares_b))
+# Send one share each of A & B to Party 1 and perform secure addition.
+p2 = smpc1.reconstruct(shares_a[1] + shares_b[1])
+
+# Send one share each of A & B to Party 1 and perform secure addition.
+p3 = smpc1.reconstruct(shares_a[2] + shares_b[2])
 
 # Perform secure comparison on the shares
-print("Secure Comparison:", smpc1.compare(shares_a, shares_b))
+print("Secure Addition using SMPC:", smpc1.reconstruct(p1+p2+p3))
 ```
 
 ### Functions
