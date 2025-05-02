@@ -49,7 +49,7 @@ p2 = smpc1.reconstruct(shares_a[1] + shares_b[1])
 
 p3 = smpc1.reconstruct(shares_a[2] + shares_b[2])
 
-# Perform secure comparison on the shares
+# Perform secure addition on the shares
 print("Secure Addition using SMPC:", smpc1.reconstruct(p1+p2+p3))
 ```
 
