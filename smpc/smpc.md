@@ -40,13 +40,13 @@ smpc1 = SMPC()
 shares_a = smpc1.get_secret_shares(a, total_parties)
 shares_b = smpc1.get_secret_shares(b, total_parties)
 
-# Send one share each of A & B to Party 1 and perform secure addition.
+# After splitting A and B into secret shares, distribute one unique share of each to Party 1, Party 2, and Party 3.
+# Then, perform secure addition on the shares.
+
 p1 = smpc1.reconstruct(shares_a[0] + shares_b[0])
 
-# Send one share each of A & B to Party 2 and perform secure addition.
 p2 = smpc1.reconstruct(shares_a[1] + shares_b[1])
 
-# Send one share each of A & B to Party 3 and perform secure addition.
 p3 = smpc1.reconstruct(shares_a[2] + shares_b[2])
 
 # Perform secure comparison on the shares
