@@ -1,6 +1,6 @@
-# Paillier Homomorphic Encryption (PHE)
+# Partial Homomorphic Encryption (PHE)
 
-Paillier Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorphic properties, allowing operations on encrypted data without decrypting it.
+Partial Homomorphic Encryption (PHE) is a public-key cryptosystem with homomorphic properties, allowing operations on encrypted data without decrypting it.
 
 ## Mathematical Definition
 
