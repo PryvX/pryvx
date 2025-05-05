@@ -28,7 +28,7 @@ pip install pryvx
 ```
 
 ## Example Usage
-
+### Homomorphic Addition
 ```python
 from pryvx import PHE
 
@@ -48,6 +48,53 @@ c_sum = phe1.homomorphic_add(c1, c2, public_key)
 decrypted_sum = phe1.decrypt(public_key, private_key, c_sum)
 
 print("Decrypted Sum:", decrypted_sum)  # Should print 15
+```
+
+### Homomorphic Subtraction
+```python
+# Homomorphic Subtraction over encrypted inputs
+
+a = 150
+b = 100
+
+from pryvx import PHE
+
+phe1 = PHE()
+public_key, private_key = phe1.keygen()
+
+encrypted_a = phe1.encrypt(public_key, a)
+encrypted_b = phe1.encrypt(public_key, b)
+
+print(encrypted_a)
+print(encrypted_b)
+
+encrypted_diff = phe1.homomorphic_sub(encrypted_a, encrypted_b, public_key)
+print(encrypted_diff)
+
+decrypted_diff = phe1.decrypt(public_key, private_key, encrypted_diff)
+print(decrypted_diff) # Should print 50
+```
+
+### Homomorphic scalar multiplication
+```python
+# Scaler multiplation of encrypted input with plaintext
+
+a = 30
+b = 6
+
+from pryvx import PHE
+
+phe1 = PHE()
+public_key, private_key = phe1.keygen()
+
+encrypted_a = phe1.encrypt(public_key, a)
+print(encrypted_a)
+
+encrypted_mult = phe1.homomorphic_scalar_mult(encrypted_a, b, public_key)
+print(encrypted_mult)
+
+decrypted_result = phe1.decrypt(public_key, private_key, encrypted_mult)
+print(decrypted_result) # Should print 180
 ```
 
 ### Example Usage with Pyspark support for distributed processing
