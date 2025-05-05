@@ -112,7 +112,7 @@ from pyspark.sql.types import StringType
 from pryvx import PHE
 
 # Initialize Spark session
-spark = SparkSession.builder.appName("PaillierHomomorphicEncryption").getOrCreate()
+spark = SparkSession.builder.appName("PartialHomomorphicEncryption").getOrCreate()
 
 # Initialise PHE
 phe1 = PHE()
